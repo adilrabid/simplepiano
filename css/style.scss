@@ -1,0 +1,115 @@
+$whiteKeyWidth: 100px;
+$blackKeyWidth: $whiteKeyWidth * 0.6;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  text-align: center;
+}
+html,
+body {
+  min-height: 100vh;
+  width: 100vw;
+}
+
+h1 {
+  padding: 20px 0px;
+  background: black;
+  color: white;
+}
+.pianoWrap {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  height: 500px;
+  border-top: 5px solid black;
+  background-color: white;
+}
+.key {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+  transition: all 200ms;
+}
+.white {
+  width: $whiteKeyWidth;
+  height: 90%;
+  border-radius: 15px;
+  padding-bottom: 20px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  margin: 0px 3px;
+  color: black;
+  z-index: 5;
+  box-shadow: 0px 8px 5px 5px rgb(61, 61, 61);
+  background: linear-gradient(aliceblue, rgb(255, 255, 255));
+  &.active,
+  &:hover {
+    background: linear-gradient(rgb(155, 208, 255), rgb(155, 208, 255));
+    box-shadow: 0px 4px 5px 1px rgb(61, 61, 61);
+  }
+}
+.black {
+  width: $blackKeyWidth;
+  z-index: 10;
+  margin-left: -$blackKeyWidth/2;
+  margin-right: -$blackKeyWidth/2;
+  color: rgb(59, 59, 59);
+  border-radius: 15px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  background: linear-gradient(rgb(87, 87, 87), rgb(20, 20, 20));
+  padding-bottom: 10px;
+  box-shadow: 0px 10px 3px 10px rgb(0, 0, 0);
+  height: 55%;
+  &.active,
+  &:hover {
+    height: calc(55% + 8px);
+    background: linear-gradient(rgb(87, 87, 87), rgb(87, 87, 87));
+    box-shadow: 0px 5px 3px 7px rgb(0, 0, 0);
+  }
+}
+span.keyBinding {
+  display: block;
+  font-size: 12px;
+  margin: 5px;
+}
+span.noteName {
+  margin: 5px;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 900px) and (orientation: landscape) {
+  $whiteKeyWidth2: calc(100vw / 10);
+  $blackKeyWidth2: 45px;
+  h1 {
+    display: none;
+  }
+  .key {
+    .keyBinding {
+      display: none;
+    }
+  }
+  .pianoWrap {
+    height: unset;
+  }
+  .white {
+    width: $whiteKeyWidth2;
+    height: 90vh;
+  }
+
+  .black {
+    width: $blackKeyWidth2;
+    margin-left: -$blackKeyWidth2/2;
+    margin-right: -$blackKeyWidth2/2;
+    height: 180px;
+    z-index: 10;
+    &.active,
+    &:hover {
+      height: 180px + 8px;
+    }
+  }
+}
