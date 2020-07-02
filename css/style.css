@@ -124,13 +124,13 @@ span.noteName {
   }
   .white {
     width: calc(100vw / 10);
-    height: 90vh;
+    height: 70vh;
   }
   .black {
     width: 45px;
     margin-left: -22.5px;
     margin-right: -22.5px;
-    height: 180px;
+    height: 165px;
     z-index: 10;
   }
   .black.active, .black:hover {
