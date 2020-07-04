@@ -105,11 +105,11 @@ span.noteName {
     width: $blackKeyWidth2;
     margin-left: -$blackKeyWidth2/2;
     margin-right: -$blackKeyWidth2/2;
-    height: 165px;
+    height: 40vh;
     z-index: 10;
     &.active,
     &:hover {
-      height: 165px + 8px;
+      height: calc(40vh + 8px);
     }
   }
 }
